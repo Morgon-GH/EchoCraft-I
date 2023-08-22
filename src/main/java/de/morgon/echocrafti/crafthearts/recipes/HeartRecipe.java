@@ -29,7 +29,7 @@ public class HeartRecipe {
 
         recipe.shape("HPH", "DTC", "HZH");
 
-        recipe.setIngredient('H', (RecipeChoice) HeartFragment);
+        recipe.setIngredient('H', new RecipeChoice.ExactChoice(HeartFragment));
         recipe.setIngredient('P', Material.PIGLIN_HEAD);
         recipe.setIngredient('D', Material.DRAGON_HEAD);
         recipe.setIngredient('T', Material.TOTEM_OF_UNDYING);

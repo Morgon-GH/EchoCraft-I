@@ -43,10 +43,10 @@ public class HeartFragmentRecipe {
 
         recipe.shape("SEM", "NON", "MES");
 
-        recipe.setIngredient('S', (RecipeChoice) SeaEssence);
-        recipe.setIngredient('E', (RecipeChoice) EndEssence);
-        recipe.setIngredient('M', (RecipeChoice) MountainEssence);
-        recipe.setIngredient('N', (RecipeChoice) NetherEssence);
+        recipe.setIngredient('S', new RecipeChoice.ExactChoice(SeaEssence));
+        recipe.setIngredient('E', new RecipeChoice.ExactChoice(EndEssence));
+        recipe.setIngredient('M', new RecipeChoice.ExactChoice(MountainEssence));
+        recipe.setIngredient('N', new RecipeChoice.ExactChoice(NetherEssence));
         recipe.setIngredient('O', Material.ENCHANTED_GOLDEN_APPLE);
 
         Bukkit.addRecipe(recipe);
