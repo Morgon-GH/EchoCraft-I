@@ -1,0 +1,7 @@
+name: EchoCraft-I
+version: '${project.version}'
+main: de.morgon.echocrafti.main
+api-version: '1.20'
+commands:
+  gifthealth:
+    description: Let's you give an amount of hearts to an other player
