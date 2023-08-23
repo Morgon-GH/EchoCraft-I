@@ -18,7 +18,7 @@ public class useKnife implements Listener {
 
         if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
-            if(e.getItem().getItemMeta().getDisplayName().equals("§bKnife")) {
+            if(e.getItem().getItemMeta().getDisplayName().equals("§bKnife") && p.getMaxHealth() > 2) {
 
                 ItemStack Heart = new ItemStack(Material.NETHER_STAR);
                 ItemMeta HeartM = Heart.getItemMeta();

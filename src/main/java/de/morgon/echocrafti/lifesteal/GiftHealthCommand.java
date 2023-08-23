@@ -18,44 +18,21 @@ public class GiftHealthCommand implements CommandExecutor {
 
             if (strings.length == 2){
                 try {
-
                     int hearts = Integer.parseInt(strings[1]);
                     int health = hearts * 2;
 
                     Player q = Bukkit.getPlayer(strings[0]);
 
-                    if (hearts > 0) {
-
-                        if (health < p.getMaxHealth()) {
-                            p.setMaxHealth(p.getMaxHealth() - health);
-                            q.setMaxHealth(q.getMaxHealth() + health);
-
-                            if (hearts == 1) {
-                                for (Player player : Bukkit.getOnlinePlayers()) {
-                                    player.sendMessage(p.getName() + " gifted a heart to " + q.getName());
-                                }
-                            } else {
-                                for (Player player : Bukkit.getOnlinePlayers()) {
-                                    player.sendMessage(p.getName() + " gifted " + hearts + " hearts to " + q.getName());
-                                }
-                            }
-                        }else commandSender.sendMessage("You do not have that many hearts");
-                    } else if (p.isOp()) {
+                    if (p.isOp()) {
 
                         p.setMaxHealth(p.getMaxHealth() - health);
                         q.setMaxHealth(q.getMaxHealth() + health);
 
-                        if (hearts == 1) {
-                            for (Player player : Bukkit.getOnlinePlayers()) {
-                                player.sendMessage(p.getName() + " gifted a heart to " + q.getName());
-                            }
-                        } else {
-                            for (Player player : Bukkit.getOnlinePlayers()) {
-                                player.sendMessage(p.getName() + " gifted " + hearts + " hearts to " + q.getName());
-                            }
+                        for (Player player : Bukkit.getOnlinePlayers()) {
+                            player.sendMessage(p.getName() + " gifted " + hearts + " hearts to " + q.getName());
                         }
 
-                    } else commandSender.sendMessage("No stealing. no no no");
+                    } else commandSender.sendMessage("You need to be op");
 
                 }catch (Exception exception){
                     commandSender.sendMessage("Please use '/gifthealth <Player> <Amount of Hearts>'");

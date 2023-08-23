@@ -1,4 +1,4 @@
-package de.morgon.echocrafti.crafthearts.recipes;
+package de.morgon.echocrafti.lifesteal.heart_recipes;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
