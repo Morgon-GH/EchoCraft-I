@@ -4,6 +4,7 @@ import de.morgon.echocrafti.lifesteal.GiftHealthCommand;
 import de.morgon.echocrafti.lifesteal.KillListener;
 import de.morgon.echocrafti.crafthearts.recipes.*;
 import de.morgon.echocrafti.lifesteal.useHeartItem;
+import de.morgon.echocrafti.lifesteal.useKnife;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.PluginManager;
@@ -25,6 +26,7 @@ public final class main extends JavaPlugin {
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new KillListener(),this);
         pluginManager.registerEvents(new useHeartItem(),this);
+        pluginManager.registerEvents(new useKnife(),this);
 
         logger.info("Loading commands");
 
@@ -49,6 +51,9 @@ public final class main extends JavaPlugin {
 
         NamespacedKey keyHeart = new NamespacedKey(this, "Heart");
         HeartRecipe.register(keyHeart);
+
+        NamespacedKey keyKnife = new NamespacedKey(this, "Knife");
+        KnifeRecipe.register(keyKnife);
     }
 
     @Override
