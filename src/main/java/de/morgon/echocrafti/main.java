@@ -3,6 +3,7 @@ package de.morgon.echocrafti;
 import de.morgon.echocrafti.lifesteal.GiftHealthCommand;
 import de.morgon.echocrafti.lifesteal.KillListener;
 import de.morgon.echocrafti.crafthearts.recipes.*;
+import de.morgon.echocrafti.lifesteal.useHeartItem;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.PluginManager;
@@ -17,6 +18,7 @@ public final class main extends JavaPlugin {
 
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new KillListener(),this);
+        pluginManager.registerEvents(new useHeartItem(),this);
 
         Objects.requireNonNull(getCommand("gifthealth")).setExecutor(new GiftHealthCommand());
 
