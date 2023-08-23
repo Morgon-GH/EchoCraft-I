@@ -9,18 +9,28 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.Objects;
+import java.util.logging.Logger;
 
 public final class main extends JavaPlugin {
 
     @Override
     public void onEnable() {
 
+        Logger logger = Bukkit.getLogger();
+
+        logger.info("Starting plugin");
+
+        logger.info("Loading Listeners");
+
         PluginManager pluginManager = Bukkit.getPluginManager();
         pluginManager.registerEvents(new KillListener(),this);
         pluginManager.registerEvents(new useHeartItem(),this);
 
-        Objects.requireNonNull(getCommand("gifthealth")).setExecutor(new GiftHealthCommand());
+        logger.info("Loading commands");
+
+        getCommand("gifthealth").setExecutor(new GiftHealthCommand());
+
+        logger.info("Loading Recipes");
 
         NamespacedKey keySeaEssence = new NamespacedKey(this, "SeaEssence");
         SeaEssenceRecipe.register(keySeaEssence);
