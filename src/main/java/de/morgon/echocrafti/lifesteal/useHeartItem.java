@@ -15,7 +15,7 @@ public class useHeartItem implements Listener {
 
         Player p = e.getPlayer();
 
-        if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK) && p.getInventory().getItemInMainHand().equals("§dHeart")) {
+        if((e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) && p.getInventory().getItemInMainHand().equals("§dHeart")) {
             p.setMaxHealth(p.getMaxHealth() + 2);
 
             ItemStack h = p.getItemInHand();
