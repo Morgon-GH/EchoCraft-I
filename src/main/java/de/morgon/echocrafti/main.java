@@ -1,10 +1,7 @@
 package de.morgon.echocrafti;
 
-import de.morgon.echocrafti.lifesteal.GiftHealthCommand;
-import de.morgon.echocrafti.lifesteal.KillListener;
+import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
-import de.morgon.echocrafti.lifesteal.useHeartItem;
-import de.morgon.echocrafti.lifesteal.useKnife;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.PluginManager;
