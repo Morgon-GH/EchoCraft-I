@@ -2,6 +2,7 @@ package de.morgon.echocrafti;
 
 import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
+import de.morgon.echocrafti.files.*;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.PluginManager;
@@ -51,6 +52,12 @@ public final class main extends JavaPlugin {
 
         NamespacedKey keyKnife = new NamespacedKey(this, "Knife");
         KnifeRecipe.register(keyKnife);
+
+        logger.info("loading custom files");
+
+        ClaimSaves.setup();
+        ClaimSaves.save();
+        ClaimSaves.get().options().copyDefaults(true);
     }
 
     @Override
