@@ -16,29 +16,32 @@ public class GiftHealthCommand implements CommandExecutor {
 
             Player p = (Player) commandSender;
 
-            if (strings.length == 2){
-                try {
-                    int hearts = Integer.parseInt(strings[1]);
-                    int health = hearts * 2;
+            if (p.isOp()) {
 
-                    Player q = Bukkit.getPlayer(strings[0]);
+                if (strings.length == 2) {
+                    try {
+                        int hearts = Integer.parseInt(strings[1]);
+                        int health = hearts * 2;
 
-                    if (p.isOp()) {
+                        Player q = Bukkit.getPlayer(strings[0]);
 
-                        p.setMaxHealth(p.getMaxHealth() - health);
-                        q.setMaxHealth(q.getMaxHealth() + health);
+                        if (p.isOp()) {
 
-                        for (Player player : Bukkit.getOnlinePlayers()) {
-                            player.sendMessage(p.getName() + " gifted " + hearts + " hearts to " + q.getName());
-                        }
+                            p.setMaxHealth(p.getMaxHealth() - health);
+                            q.setMaxHealth(q.getMaxHealth() + health);
 
-                    } else commandSender.sendMessage("You need to be op");
+                            for (Player player : Bukkit.getOnlinePlayers()) {
+                                player.sendMessage(p.getName() + " gifted " + hearts + " hearts to " + q.getName());
+                            }
 
-                }catch (Exception exception){
-                    commandSender.sendMessage("Please use '/gifthealth <Player> <Amount of Hearts>'");
-                }
+                        } else commandSender.sendMessage("You need to be op");
 
-            }else commandSender.sendMessage("Please use '/gifthealth <Player> <Amount of Hearts>'");
+                    } catch (Exception exception) {
+                        commandSender.sendMessage("Please use '/gifthealth <Player> <Amount of Hearts>'");
+                    }
+
+                } else commandSender.sendMessage("Please use '/gifthealth <Player> <Amount of Hearts>'");
+            }else p.sendMessage("You must be op. Please use the Knife Item instead");
         }else commandSender.sendMessage("Command must be executed by a player");
 
         return false;

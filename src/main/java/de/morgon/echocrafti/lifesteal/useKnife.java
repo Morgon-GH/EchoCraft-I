@@ -18,18 +18,23 @@ public class useKnife implements Listener {
 
         if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
-            if(e.getItem().getItemMeta().getDisplayName().equals("§bKnife") && p.getMaxHealth() > 2) {
+            try {
 
-                ItemStack Heart = new ItemStack(Material.NETHER_STAR);
-                ItemMeta HeartM = Heart.getItemMeta();
-                HeartM.setDisplayName("§dHeart");
-                HeartM.setCustomModelData(1);
-                Heart.setItemMeta(HeartM);
+                if (e.getItem().getItemMeta().getDisplayName().equals("§bKnife") && p.getMaxHealth() > 2) {
 
-                p.getInventory().addItem(Heart);
+                    ItemStack Heart = new ItemStack(Material.NETHER_STAR);
+                    ItemMeta HeartM = Heart.getItemMeta();
+                    HeartM.setDisplayName("§dHeart");
+                    HeartM.setCustomModelData(1);
+                    Heart.setItemMeta(HeartM);
 
-                p.setMaxHealth(p.getMaxHealth() - 2);
+                    p.getInventory().addItem(Heart);
 
+                    p.setMaxHealth(p.getMaxHealth() - 2);
+
+                }
+            }catch (Exception exception){
+                return;
             }
         }
     }

@@ -1,7 +1,6 @@
 package de.morgon.echocrafti;
 
-import de.morgon.echocrafti.claiming.ClaimBannerRecipe;
-import de.morgon.echocrafti.claiming.CraftListener;
+import de.morgon.echocrafti.claiming.*;
 import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
 import de.morgon.echocrafti.files.*;
@@ -28,6 +27,10 @@ public final class main extends JavaPlugin {
         pluginManager.registerEvents(new useHeartItem(),this);
         pluginManager.registerEvents(new useKnife(),this);
         pluginManager.registerEvents(new CraftListener(),this);
+        pluginManager.registerEvents(new ClaimListener(), this);
+        pluginManager.registerEvents(new UnclaimListener(), this);
+        pluginManager.registerEvents(new PlaceListener(), this);
+        pluginManager.registerEvents(new BreakListener(), this);
 
         logger.info("Loading commands");
 
@@ -58,6 +61,9 @@ public final class main extends JavaPlugin {
 
         NamespacedKey keyClaimBanner = new NamespacedKey(this, "ClaimBanner");
         ClaimBannerRecipe.register(keyClaimBanner);
+
+        NamespacedKey keyAltClaimBanner = new NamespacedKey(this, "AltClaimBanner");
+        ClaimBannerAltRecipe.register(keyAltClaimBanner);
 
 
         logger.info("loading custom files");

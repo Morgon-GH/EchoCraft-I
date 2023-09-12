@@ -1,10 +1,8 @@
 package de.morgon.echocrafti.claiming;
 
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
@@ -26,12 +24,18 @@ public class CraftListener implements Listener {
             Player p = (Player) e.getWhoClicked();
             ItemStack b = e.getCurrentItem();
 
-            String teamName = p.getScoreboard().getTeams().stream().findFirst().get().getDisplayName();
-            ChatColor teamColor = p.getScoreboard().getTeams().stream().findFirst().get().getColor();
+            try {
 
-            ItemMeta m = b.getItemMeta();
-            m.setDisplayName(teamColor + teamName);
-            b.setItemMeta(m);
+                String teamName = p.getScoreboard().getPlayerTeam(p).getDisplayName();
+                ChatColor teamColor = p.getScoreboard().getPlayerTeam(p).getColor();
+
+                ItemMeta m = b.getItemMeta();
+                m.setDisplayName(teamColor + teamName);
+                b.setItemMeta(m);
+
+            }catch (Exception exception){
+                p.sendMessage("You are in no team. Please join a team and lay the \"Claim Banner\" into you're crafting grid again");
+            }
 
         }
 

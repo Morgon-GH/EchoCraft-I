@@ -17,13 +17,18 @@ public class useHeartItem implements Listener {
 
         if(e.getAction().equals(Action.RIGHT_CLICK_AIR) || e.getAction().equals(Action.RIGHT_CLICK_BLOCK)) {
 
-            if(e.getItem().getItemMeta().getDisplayName().equals("§dHeart")) {
-                p.setMaxHealth(p.getMaxHealth() + 2);
+            try {
 
-                ItemStack h = e.getItem();
-                h.setAmount(h.getAmount() - 1);
+                if (e.getItem().getItemMeta().getDisplayName().equals("§dHeart")) {
+                    p.setMaxHealth(p.getMaxHealth() + 2);
 
-                p.getInventory().setItemInMainHand(h);
+                    ItemStack h = e.getItem();
+                    h.setAmount(h.getAmount() - 1);
+
+                    p.getInventory().setItemInMainHand(h);
+                }
+            }catch (Exception exception){
+                return;
             }
         }
     }
