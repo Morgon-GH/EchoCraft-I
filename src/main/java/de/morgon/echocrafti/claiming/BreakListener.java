@@ -14,7 +14,7 @@ public class BreakListener implements Listener {
         Player p = e.getPlayer();
         String teamName = p.getScoreboard().getTeams().stream().findFirst().get().getDisplayName();
 
-        if ()
+        //if ()
 
     }
 

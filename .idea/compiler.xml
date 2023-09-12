@@ -9,8 +9,5 @@
         <module name="EchoCraft-I" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="EchoCraft-I" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

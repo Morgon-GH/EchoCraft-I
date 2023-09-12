@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.CraftItemEvent;
@@ -23,11 +24,14 @@ public class CraftListener implements Listener {
         if (e.getRecipe().getResult().equals(ClaimBanner)){
 
             Player p = (Player) e.getWhoClicked();
+            ItemStack b = e.getCurrentItem();
 
             String teamName = p.getScoreboard().getTeams().stream().findFirst().get().getDisplayName();
             ChatColor teamColor = p.getScoreboard().getTeams().stream().findFirst().get().getColor();
 
-            
+            ItemMeta m = b.getItemMeta();
+            m.setDisplayName(teamColor + teamName);
+            b.setItemMeta(m);
 
         }
 
