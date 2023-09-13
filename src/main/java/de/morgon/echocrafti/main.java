@@ -4,6 +4,8 @@ import de.morgon.echocrafti.claiming.*;
 import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
 import de.morgon.echocrafti.files.*;
+import de.morgon.echocrafti.upgrades.SilexRecipe;
+import de.morgon.echocrafti.upgrades.SilexUse;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.plugin.PluginManager;
@@ -31,6 +33,7 @@ public final class main extends JavaPlugin {
         pluginManager.registerEvents(new UnclaimListener(), this);
         pluginManager.registerEvents(new PlaceListener(), this);
         pluginManager.registerEvents(new BreakListener(), this);
+        pluginManager.registerEvents(new SilexUse(), this);
 
         logger.info("Loading commands");
 
@@ -64,6 +67,9 @@ public final class main extends JavaPlugin {
 
         NamespacedKey keyAltClaimBanner = new NamespacedKey(this, "AltClaimBanner");
         ClaimBannerAltRecipe.register(keyAltClaimBanner);
+
+        NamespacedKey keySilex = new NamespacedKey(this, "Silex");
+        SilexRecipe.register(keySilex);
 
 
         logger.info("loading custom files");
