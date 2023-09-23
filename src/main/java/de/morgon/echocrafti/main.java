@@ -34,10 +34,12 @@ public final class main extends JavaPlugin {
         pluginManager.registerEvents(new PlaceListener(), this);
         pluginManager.registerEvents(new BreakListener(), this);
         pluginManager.registerEvents(new SilexUse(), this);
+        pluginManager.registerEvents(new BreakBlockBeneathBannerListener(), this);
 
         logger.info("Loading commands");
 
         getCommand("gifthealth").setExecutor(new GiftHealthCommand());
+        getCommand("checkclaim").setExecutor(new CheckClaimCommand());
 
         logger.info("Loading Recipes");
 
