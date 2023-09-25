@@ -18,7 +18,8 @@ public class ClaimListener implements Listener {
 
         int x = e.getBlock().getChunk().getX();
         int z = e.getBlock().getChunk().getZ();
-        String chunk = x + "," + z;
+        String dim = e.getBlock().getWorld().getName();
+        String chunk = dim + "," + x + "," + z;
 
         String claimer = (String) ClaimSaves.get().get(chunk);
         if (e.getBlock().getType().equals(Material.WHITE_BANNER) && e.getItemInHand().getItemMeta().getDisplayName().equals(p.getScoreboard().getPlayerTeam(p).getColor() + p.getScoreboard().getPlayerTeam(p).getDisplayName())) {
@@ -31,7 +32,7 @@ public class ClaimListener implements Listener {
             } else {
 
 
-                String loc = x + "," + z;
+                String loc = dim + "," +  x + "," + z;
 
                 ClaimSaves.get().set(loc, p.getScoreboard().getPlayerTeam(p).getDisplayName());
                 ClaimSaves.save();

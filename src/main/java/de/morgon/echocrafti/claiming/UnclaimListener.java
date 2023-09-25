@@ -23,8 +23,9 @@ public class UnclaimListener implements Listener {
 
                 int x = e.getBlock().getChunk().getX();
                 int z = e.getBlock().getChunk().getZ();
+                String dim = e.getBlock().getWorld().getName();
 
-                String loc = x + "," + z;
+                String loc = dim + "," +  x + "," + z;
 
                 ClaimSaves.get().set(loc, null);
                 ClaimSaves.save();

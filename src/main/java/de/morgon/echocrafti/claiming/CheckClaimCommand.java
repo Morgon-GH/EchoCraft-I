@@ -13,7 +13,8 @@ public class CheckClaimCommand implements CommandExecutor {
         if (commandSender instanceof Player){
 
             Player p = (Player) commandSender;
-            String loc = p.getLocation().getChunk().getX() + "," + p.getLocation().getChunk().getZ();
+            String dim = p.getWorld().getName();
+            String loc = dim + "," + p.getLocation().getChunk().getX() + "," + p.getLocation().getChunk().getZ();
             String team = ClaimSaves.get().getString(loc);
 
             if (team != null){

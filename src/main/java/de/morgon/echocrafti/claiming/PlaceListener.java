@@ -14,7 +14,7 @@ public class PlaceListener implements Listener {
     public static void onPlace(BlockPlaceEvent e){
 
         Player p = e.getPlayer();
-        String chunk = e.getBlock().getLocation().getChunk().getX() + "," + e.getBlock().getLocation().getChunk().getZ();
+        String chunk = e.getBlock().getWorld().getName() + "," + e.getBlock().getLocation().getChunk().getX() + "," + e.getBlock().getLocation().getChunk().getZ();
 
         try {
 
