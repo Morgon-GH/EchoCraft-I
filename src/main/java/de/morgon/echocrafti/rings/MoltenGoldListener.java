@@ -38,13 +38,13 @@ public class MoltenGoldListener implements Listener {
     static Material[][][] structure = {
         {
             {Material.OBSIDIAN, Material.OBSIDIAN, Material.OBSIDIAN, Material.OBSIDIAN},
-            {Material.DEEPSLATE_TILE_WALL, Material.DEEPSLATE_TILE_WALL, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS},
-            {Material.AIR, Material.AIR, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS},
+            {Material.DEEPSLATE_TILE_WALL, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS},
+            {Material.AIR, Material.POLISHED_BLACKSTONE_BRICK_STAIRS, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS},
             {Material.AIR, Material.AIR, Material.POLISHED_BLACKSTONE_BRICK_STAIRS, Material.POLISHED_BLACKSTONE_BRICKS},
             {Material.AIR, Material.AIR, Material.AIR, Material.CHISELED_POLISHED_BLACKSTONE}
         }, {
             {Material.OBSIDIAN, Material.OBSIDIAN, Material.OBSIDIAN, Material.OBSIDIAN},
-            {Material.CHISELED_DEEPSLATE, Material.LAVA, Material.LAVA, Material.POLISHED_BLACKSTONE_BRICKS},
+            {Material.CHISELED_DEEPSLATE, Material.COAL_BLOCK, Material.LAVA, Material.POLISHED_BLACKSTONE_BRICKS},
             {Material.AIR, Material.AIR, Material.LAVA, Material.POLISHED_BLACKSTONE_BRICKS},
             {Material.AIR, Material.AIR, Material.LAVA, Material.LAVA},
             {Material.AIR, Material.AIR, Material.AIR, Material.POLISHED_BLACKSTONE_BRICKS}
@@ -56,14 +56,14 @@ public class MoltenGoldListener implements Listener {
             {Material.AIR, Material.AIR, Material.AIR, Material.POLISHED_BLACKSTONE_BRICKS}
         }, {
             {Material.OBSIDIAN, Material.OBSIDIAN, Material.OBSIDIAN, Material.OBSIDIAN},
-            {Material.CHISELED_DEEPSLATE, Material.LAVA, Material.LAVA, Material.POLISHED_BLACKSTONE_BRICKS},
+            {Material.CHISELED_DEEPSLATE, Material.COAL_BLOCK, Material.LAVA, Material.POLISHED_BLACKSTONE_BRICKS},
             {Material.AIR, Material.AIR, Material.LAVA, Material.POLISHED_BLACKSTONE_BRICKS},
             {Material.AIR, Material.AIR, Material.LAVA, Material.LAVA},
             {Material.AIR, Material.AIR, Material.AIR, Material.POLISHED_BLACKSTONE_BRICKS}
         }, {
             {Material.OBSIDIAN, Material.OBSIDIAN, Material.OBSIDIAN, Material.OBSIDIAN},
-            {Material.DEEPSLATE_TILE_WALL, Material.DEEPSLATE_TILE_WALL, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS},
-            {Material.AIR, Material.AIR, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS},
+            {Material.DEEPSLATE_TILE_WALL, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS},
+            {Material.AIR, Material.POLISHED_BLACKSTONE_BRICK_STAIRS, Material.POLISHED_BLACKSTONE_BRICKS, Material.POLISHED_BLACKSTONE_BRICKS},
             {Material.AIR, Material.AIR, Material.POLISHED_BLACKSTONE_BRICK_STAIRS, Material.POLISHED_BLACKSTONE_BRICKS},
             {Material.AIR, Material.AIR, Material.AIR, Material.CHISELED_POLISHED_BLACKSTONE}
         }
@@ -92,6 +92,8 @@ public class MoltenGoldListener implements Listener {
 
 
                 giveMoltenGold(p, e);
+                e.getClickedBlock().getRelative(1, 0, 0).setType(Material.AIR);
+                e.getClickedBlock().getRelative(-1, 0, 0).setType(Material.AIR);
             }
 
         }catch (Exception exception){
@@ -124,6 +126,8 @@ public class MoltenGoldListener implements Listener {
 
 
                 giveMoltenGold(p, e);
+                e.getClickedBlock().getRelative(0, 0, 1).setType(Material.AIR);
+                e.getClickedBlock().getRelative(0, 0, -1).setType(Material.AIR);
             }
 
         }catch (Exception exception){
@@ -156,6 +160,8 @@ public class MoltenGoldListener implements Listener {
 
 
                 giveMoltenGold(p, e);
+                e.getClickedBlock().getRelative(1, 0, 0).setType(Material.AIR);
+                e.getClickedBlock().getRelative(-1, 0, 0).setType(Material.AIR);
             }
 
         }catch (Exception exception){
@@ -189,6 +195,8 @@ public class MoltenGoldListener implements Listener {
 
 
                 giveMoltenGold(p, e);
+                e.getClickedBlock().getRelative(0, 0, 1).setType(Material.AIR);
+                e.getClickedBlock().getRelative(0, 0, -1).setType(Material.AIR);
             }
 
         }catch (Exception exception){
