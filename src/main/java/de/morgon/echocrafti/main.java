@@ -4,7 +4,9 @@ import de.morgon.echocrafti.claiming.*;
 import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
 import de.morgon.echocrafti.files.*;
+import de.morgon.echocrafti.rings.ForgeRingListener;
 import de.morgon.echocrafti.rings.MoltenGoldListener;
+import de.morgon.echocrafti.rings.UniverseIngotRecipe;
 import de.morgon.echocrafti.upgrades.SilexRecipe;
 import de.morgon.echocrafti.upgrades.SilexUse;
 import org.bukkit.Bukkit;
@@ -37,7 +39,7 @@ public final class main extends JavaPlugin {
         pluginManager.registerEvents(new SilexUse(), this);
         pluginManager.registerEvents(new BreakBlockBeneathBannerListener(), this);
         pluginManager.registerEvents(new MoltenGoldListener(), this);
-//        pluginManager.registerEvents(new RenameListener(), this);
+        pluginManager.registerEvents(new ForgeRingListener(), this);
 
         logger.info("Loading commands");
 
@@ -75,6 +77,9 @@ public final class main extends JavaPlugin {
 
         NamespacedKey keySilex = new NamespacedKey(this, "Silex");
         SilexRecipe.register(keySilex);
+
+        NamespacedKey keyUniverse = new NamespacedKey(this, "UniverseIngot");
+        UniverseIngotRecipe.register(keyUniverse);
 
 
         logger.info("loading custom files");
