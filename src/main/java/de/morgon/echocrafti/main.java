@@ -1,6 +1,8 @@
 package de.morgon.echocrafti;
 
 import de.morgon.echocrafti.claiming.*;
+import de.morgon.echocrafti.cosmetics.runes.TestEvent;
+import de.morgon.echocrafti.cosmetics.runes.test;
 import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
 import de.morgon.echocrafti.files.*;
@@ -16,8 +18,12 @@ import java.util.logging.Logger;
 
 public final class main extends JavaPlugin {
 
+    private static main plugin;
+
     @Override
     public void onEnable() {
+
+        plugin = this;
 
         Logger logger = Bukkit.getLogger();
 
@@ -37,6 +43,7 @@ public final class main extends JavaPlugin {
         pluginManager.registerEvents(new SilexUse(), this);
         pluginManager.registerEvents(new BreakBlockBeneathBannerListener(), this);
         pluginManager.registerEvents(new MoltenGoldListener(), this);
+        pluginManager.registerEvents(new TestEvent(), this);
 //        pluginManager.registerEvents(new RenameListener(), this);
 
         logger.info("Loading commands");
@@ -82,6 +89,10 @@ public final class main extends JavaPlugin {
         ClaimSaves.setup();
         ClaimSaves.save();
         ClaimSaves.get().options().copyDefaults(true);
+    }
+
+    public static main getPlugin() {
+        return plugin;
     }
 
     @Override
