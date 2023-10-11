@@ -1,8 +1,6 @@
 package de.morgon.echocrafti;
 
 import de.morgon.echocrafti.claiming.*;
-import de.morgon.echocrafti.cosmetics.runes.TestEvent;
-import de.morgon.echocrafti.cosmetics.runes.test;
 import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
 import de.morgon.echocrafti.files.*;
@@ -15,6 +13,8 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.logging.Logger;
+
+import static de.morgon.echocrafti.cosmetics.runes.GrandSearing.searingRune;
 
 public final class main extends JavaPlugin {
 
@@ -43,7 +43,6 @@ public final class main extends JavaPlugin {
         pluginManager.registerEvents(new SilexUse(), this);
         pluginManager.registerEvents(new BreakBlockBeneathBannerListener(), this);
         pluginManager.registerEvents(new MoltenGoldListener(), this);
-        pluginManager.registerEvents(new TestEvent(), this);
 //        pluginManager.registerEvents(new RenameListener(), this);
 
         logger.info("Loading commands");
@@ -89,6 +88,9 @@ public final class main extends JavaPlugin {
         ClaimSaves.setup();
         ClaimSaves.save();
         ClaimSaves.get().options().copyDefaults(true);
+
+        searingRune();
+
     }
 
     public static main getPlugin() {
