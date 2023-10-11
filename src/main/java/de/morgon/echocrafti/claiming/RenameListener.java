@@ -1,5 +1,6 @@
 package de.morgon.echocrafti.claiming;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -20,15 +21,27 @@ public class RenameListener implements Listener {
 
         if (e.getAction().equals(Action.RIGHT_CLICK_AIR) && e.getItem().getType().equals(Material.WHITE_BANNER)){
 
-            ItemStack b = e.getItem();
+            if(e.getItem().hasItemMeta()) {
 
-            String teamName = p.getScoreboard().getPlayerTeam(p).getDisplayName();
-            ChatColor teamColor = p.getScoreboard().getPlayerTeam(p).getColor();
+                ItemStack b = e.getItem();
 
-            ItemMeta m = b.getItemMeta();
-            m.setDisplayName(teamColor + teamName);
-            b.setItemMeta(m);
+                String t = Bukkit.getScoreboardManager().getMainScoreboard().getTeams().stream().findAny().get().getDisplayName();
+
+                for (Bukkit.getScoreboardManager().getMainScoreboard().getEntries();;
+                     ) {
+                    if(b.getItemMeta().getDisplayName().equals(t)) {
+
+                        String teamName = p.getScoreboard().getPlayerTeam(p).getDisplayName();
+                        ChatColor teamColor = p.getScoreboard().getPlayerTeam(p).getColor();
+
+                        ItemMeta m = b.getItemMeta();
+                        m.setDisplayName(teamColor + teamName);
+                        b.setItemMeta(m);
+
+                    }
+                }
+
+            }
         }
     }
-
 }
