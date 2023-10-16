@@ -1,6 +1,7 @@
 package de.morgon.echocrafti;
 
 import de.morgon.echocrafti.claiming.*;
+import de.morgon.echocrafti.cosmetics.customHeads.testSkullItem;
 import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
 import de.morgon.echocrafti.files.*;
@@ -52,6 +53,7 @@ public final class main extends JavaPlugin {
 
         getCommand("gifthealth").setExecutor(new GiftHealthCommand());
         getCommand("checkclaim").setExecutor(new CheckClaimCommand());
+        getCommand("testskull").setExecutor(new testSkullItem());
 
         logger.info("Loading Recipes");
 
