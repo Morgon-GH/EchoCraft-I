@@ -9,7 +9,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Furnace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -17,8 +16,6 @@ import org.bukkit.inventory.FurnaceInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import java.util.Vector;
 
 public class ForgeRingListener implements Listener {
 
@@ -76,7 +73,7 @@ public class ForgeRingListener implements Listener {
                 } else if (e.getItem().getType().equals(Material.ENDER_EYE)) {
                     item = 3;
                     removeItem(p);
-                }else if (e.getItem().getType().equals(Material.CRYING_OBSIDIAN)){
+                }else if (e.getItem().getType().equals(Material.OBSIDIAN)){
                     item = 4;
                     removeItem(p);
                 }else if (e.getItem().getType().equals(Material.SCULK)){
@@ -226,7 +223,7 @@ public class ForgeRingListener implements Listener {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
@@ -237,7 +234,7 @@ public class ForgeRingListener implements Listener {
 
         ItemStack ring = new ItemStack(Material.PAPER);
         ItemMeta ringM = ring.getItemMeta();
-        ringM.setDisplayName(ChatColor.AQUA + "Darkness Ring");
+        ringM.setDisplayName(ChatColor.AQUA + "Ring of Darkness");
         ringM.setCustomModelData(2);
         ring.setItemMeta(ringM);
 
@@ -245,7 +242,7 @@ public class ForgeRingListener implements Listener {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
@@ -264,7 +261,7 @@ public class ForgeRingListener implements Listener {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
@@ -275,7 +272,7 @@ public class ForgeRingListener implements Listener {
 
         ItemStack ring = new ItemStack(Material.PAPER);
         ItemMeta ringM = ring.getItemMeta();
-        ringM.setDisplayName(ChatColor.AQUA + "Earth Ring");
+        ringM.setDisplayName(ChatColor.AQUA + "Ring of the Earth");
         ringM.setCustomModelData(4);
         ring.setItemMeta(ringM);
 
@@ -283,7 +280,7 @@ public class ForgeRingListener implements Listener {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
@@ -294,7 +291,7 @@ public class ForgeRingListener implements Listener {
 
         ItemStack ring = new ItemStack(Material.PAPER);
         ItemMeta ringM = ring.getItemMeta();
-        ringM.setDisplayName(ChatColor.AQUA + "Necromancy Ring");
+        ringM.setDisplayName(ChatColor.AQUA + "Ring of Necromancy");
         ringM.setCustomModelData(5);
         ring.setItemMeta(ringM);
 
@@ -302,7 +299,7 @@ public class ForgeRingListener implements Listener {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
