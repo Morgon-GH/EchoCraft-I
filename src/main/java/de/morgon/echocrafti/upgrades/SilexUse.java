@@ -9,11 +9,9 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class SilexUse implements Listener {
+public class SilexUse {
 
-    @EventHandler
-
-    public static void OnSilexClick(PlayerInteractEvent e) {
+    public static void onSilexClick(PlayerInteractEvent e) {
 
         Player p = e.getPlayer();
         ItemStack b = e.getPlayer().getInventory().getItemInOffHand();

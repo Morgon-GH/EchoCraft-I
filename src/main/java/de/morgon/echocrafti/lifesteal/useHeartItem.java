@@ -7,9 +7,7 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class useHeartItem implements Listener {
-
-    @EventHandler
+public class useHeartItem {
 
     public static void onHeartUse(PlayerInteractEvent e) {
 

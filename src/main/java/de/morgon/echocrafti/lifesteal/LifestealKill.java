@@ -7,10 +7,9 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-public class KillListener implements Listener {
+public class LifestealKill {
 
-    @EventHandler
-    public static void onPlayerKill(PlayerDeathEvent e){
+    public static void onStealLife(PlayerDeathEvent e){
 
         Player victim = e.getEntity();
         Entity killer = e.getEntity().getKiller();

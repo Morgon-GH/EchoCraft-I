@@ -9,20 +9,17 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Furnace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.Listener;
+
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.FurnaceInventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class ForgeRingListener implements Listener {
+public class ForgeRing {
 
 
-
-    @EventHandler
-    public static void onClickAnvil(PlayerInteractEvent e){
+    public static void onForgeRing(PlayerInteractEvent e){
         try{
 
             Block b = e.getClickedBlock();

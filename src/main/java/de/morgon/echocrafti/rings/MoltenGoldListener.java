@@ -10,7 +10,14 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class MoltenGoldListener implements Listener {
+public class MoltenGoldListener {
+
+    public static void onMeldGold(PlayerInteractEvent e){
+        onMeldGold1(e);
+        onMeldGold2(e);
+        onMeldGold3(e);
+        onMeldGold4(e);
+    }
 
     public static void giveMoltenGold(Player p, PlayerInteractEvent e){
 
@@ -66,8 +73,8 @@ public class MoltenGoldListener implements Listener {
         }
     };
 
-    @EventHandler
-    public static void onClickBlastFurnace1(PlayerInteractEvent e){
+
+    public static void onMeldGold1(PlayerInteractEvent e){
 
         Player p = e.getPlayer();
 
@@ -100,8 +107,7 @@ public class MoltenGoldListener implements Listener {
     }
 
 
-    @EventHandler
-    public static void onClickBlastFurnace2(PlayerInteractEvent e){
+    public static void onMeldGold2(PlayerInteractEvent e){
 
         Player p = e.getPlayer();
 
@@ -134,8 +140,7 @@ public class MoltenGoldListener implements Listener {
     }
 
 
-    @EventHandler
-    public static void onClickBlastFurnace3(PlayerInteractEvent e){
+    public static void onMeldGold3(PlayerInteractEvent e){
 
         Player p = e.getPlayer();
 
@@ -169,8 +174,7 @@ public class MoltenGoldListener implements Listener {
 
 
 
-    @EventHandler
-    public static void onClickBlastFurnace4(PlayerInteractEvent e){
+    public static void onMeldGold4(PlayerInteractEvent e){
 
         Player p = e.getPlayer();
 

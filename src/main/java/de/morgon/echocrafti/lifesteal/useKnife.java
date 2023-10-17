@@ -9,9 +9,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class useKnife implements Listener {
-
-    @EventHandler
+public class useKnife {
 
     public static void onKnifeUse(PlayerInteractEvent e) {
         Player p = e.getPlayer();

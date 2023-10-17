@@ -4,14 +4,12 @@ import de.morgon.echocrafti.files.ClaimSaves;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 
-import java.util.Objects;
+public class ClaimBreak{
 
-public class PlaceListener implements Listener {
-
-    @EventHandler
-    public static void onPlace(BlockPlaceEvent e){
+    public static void onBreakClaimedBlock(BlockBreakEvent e){
 
         Player p = e.getPlayer();
         String chunk = e.getBlock().getWorld().getName() + "," + e.getBlock().getLocation().getChunk().getX() + "," + e.getBlock().getLocation().getChunk().getZ();
@@ -23,9 +21,9 @@ public class PlaceListener implements Listener {
             String claimer = (String) ClaimSaves.get().get(chunk);
 
             if (team.equals(claimer)) {
-                return;
+                e.setCancelled(false);
             } else if (claimer == null) {
-                return;
+                e.setCancelled(false);
             } else {
                 e.setCancelled(true);
                 p.sendMessage("This is the territory of an other fraction");
@@ -38,4 +36,5 @@ public class PlaceListener implements Listener {
 
         }
     }
+
 }

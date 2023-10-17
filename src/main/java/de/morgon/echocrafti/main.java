@@ -5,7 +5,10 @@ import de.morgon.echocrafti.cosmetics.customHeads.testSkullItem;
 import de.morgon.echocrafti.lifesteal.*;
 import de.morgon.echocrafti.lifesteal.heart_recipes.*;
 import de.morgon.echocrafti.files.*;
-import de.morgon.echocrafti.rings.ForgeRingListener;
+import de.morgon.echocrafti.listener.BlockBreakListener;
+import de.morgon.echocrafti.listener.BlockPlaceListener;
+import de.morgon.echocrafti.listener.PlayerDeathListener;
+import de.morgon.echocrafti.listener.PlayerInteractListener;
 import de.morgon.echocrafti.rings.MoltenGoldListener;
 import de.morgon.echocrafti.rings.UniverseIngotRecipe;
 import de.morgon.echocrafti.upgrades.SilexRecipe;
@@ -35,19 +38,11 @@ public final class main extends JavaPlugin {
         logger.info("Loading Listeners");
 
         PluginManager pluginManager = Bukkit.getPluginManager();
-        pluginManager.registerEvents(new KillListener(),this);
-        pluginManager.registerEvents(new useHeartItem(),this);
-        pluginManager.registerEvents(new useKnife(),this);
-        pluginManager.registerEvents(new CraftListener(),this);
-        pluginManager.registerEvents(new ClaimListener(), this);
-        pluginManager.registerEvents(new UnclaimListener(), this);
-        pluginManager.registerEvents(new PlaceListener(), this);
-        pluginManager.registerEvents(new BreakListener(), this);
-        pluginManager.registerEvents(new SilexUse(), this);
-        pluginManager.registerEvents(new BreakBlockBeneathBannerListener(), this);
-        pluginManager.registerEvents(new MoltenGoldListener(), this);
-//        pluginManager.registerEvents(new RenameListener(), this);
-        pluginManager.registerEvents(new ForgeRingListener(), this);
+        pluginManager.registerEvents(new BlockBreakListener(),this);
+        pluginManager.registerEvents(new BlockPlaceListener(),this);
+        pluginManager.registerEvents(new PlayerDeathListener(),this);
+        pluginManager.registerEvents(new PlayerInteractListener(),this);
+
 
         logger.info("Loading commands");
 

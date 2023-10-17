@@ -7,9 +7,8 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
-public class UnclaimListener implements Listener {
+public class Unclaim {
 
-    @EventHandler
     public static void onBreakBanner(BlockBreakEvent e){
 
         Player p = e.getPlayer();

@@ -9,9 +9,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.material.Directional;
 
-public class ClaimListener implements Listener {
+public class Claim {
 
-    @EventHandler
     public static void onPlaceBanner(BlockPlaceEvent e) {
 
         Player p = e.getPlayer();

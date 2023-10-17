@@ -6,11 +6,10 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 
-public class BreakBlockBeneathBannerListener implements Listener {
+public class ClaimBreakBlockBeneathBanner {
 
-    @EventHandler
-    public void onBlockBreak(BlockBreakEvent e) {
-        if (e.getBlock().getLocation().add(0, 1, 0).getBlock().getType().equals(Material.WHITE_BANNER)) {
+    public static void onBreakBlockBeneathBanner(BlockBreakEvent e) {
+        if (e.getBlock().getLocation().add(0, 1, 0).getBlock().getType().equals(Material.WHITE_BANNER)){
             e.setCancelled(true);
             e.getPlayer().sendMessage("Please destroy banner on top before mining this Block");
         }
