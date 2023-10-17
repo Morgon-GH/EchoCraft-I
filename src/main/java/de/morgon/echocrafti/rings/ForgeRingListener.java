@@ -9,6 +9,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.Furnace;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -28,6 +29,7 @@ public class ForgeRingListener implements Listener {
         try{
 
             Block b = e.getClickedBlock();
+            Player p = e.getPlayer();
 
             if (b.getType() == Material.ANVIL) {
 
@@ -63,42 +65,98 @@ public class ForgeRingListener implements Listener {
                     }
                 }
 
-                e.setCancelled(true);
+                int item;
 
-                LavaFurnace(e.getClickedBlock());
+                if(e.getItem().getType().equals(Material.GOLDEN_APPLE)){
+                    item = 1;
+                    removeItem(p);
+                }else if (e.getItem().getType().equals(Material.GILDED_BLACKSTONE)){
+                    item = 2;
+                    removeItem(p);
+                } else if (e.getItem().getType().equals(Material.ENDER_EYE)) {
+                    item = 3;
+                    removeItem(p);
+                }else if (e.getItem().getType().equals(Material.CRYING_OBSIDIAN)){
+                    item = 4;
+                    removeItem(p);
+                }else if (e.getItem().getType().equals(Material.SCULK)){
+                    item = 5;
+                    removeItem(p);
+                }else return;
 
-                new BukkitRunnable(){
-                    @Override
-                    public void run() {
-                        MagmaLava(e.getClickedBlock());
-                    }
-                }.runTaskLater(main.getPlugin(), 180);
-
-                new BukkitRunnable(){
-                    int i = 0;
-                    @Override
-                    public void run(){
-
-                        i++;
-                        if (i < 40){
-
-                            Particles(e.getClickedBlock());
-
-                        }else cancel();
-                    }
-                }.runTaskTimer(main.getPlugin(), 200, 1);
+                Animation(e);
 
                 new BukkitRunnable(){
 
                     @Override
                     public void run() {
-                        RingMagma(b);
+
+                        if (item == 1){
+                            HeavensRing(b);
+                        }else if (item == 2){
+                            DarknessRing(b);
+                        }else if (item == 3){
+                            AstralRing(b);
+                        }else if (item == 4){
+                            EarthRing(b);
+                        }else if (item == 5){
+                            NecromancyRing(b);
+                        }
+
                     }
                 }.runTaskLater(main.getPlugin(), 240);
             }
         }catch (Exception exception){
             return;
         }
+    }
+
+    public static void removeItem(Player p){
+
+        ItemStack item = p.getItemInHand();
+        item.setAmount(item.getAmount() - 1);
+
+    }
+
+
+    public static void Animation(PlayerInteractEvent e){
+
+        e.setCancelled(true);
+        Block b = e.getClickedBlock();
+
+        LavaFurnace(e.getClickedBlock());
+
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                MagmaLava(e.getClickedBlock());
+            }
+        }.runTaskLater(main.getPlugin(), 180);
+
+        new BukkitRunnable(){
+            int i = 0;
+            @Override
+            public void run(){
+
+                i++;
+                if (i < 40){
+
+                    Particles(e.getClickedBlock());
+
+                }else cancel();
+            }
+        }.runTaskTimer(main.getPlugin(), 200, 1);
+
+        new BukkitRunnable(){
+            @Override
+            public void run() {
+                b.getRelative(1, -1, 0).setType(Material.AIR);
+                b.getRelative(-1, -1, 0).setType(Material.AIR);
+                b.getRelative(0, -1, 1).setType(Material.AIR);
+                b.getRelative(0, -1, -1).setType(Material.AIR);
+            }
+        }.runTaskLater(main.getPlugin(), 240);
+
     }
 
     public static void LavaFurnace(Block b){
@@ -156,17 +214,88 @@ public class ForgeRingListener implements Listener {
         }
     }
 
-    public static void RingMagma(Block b){
-
-        b.getRelative(1, -1, 0).setType(Material.AIR);
-        b.getRelative(-1, -1, 0).setType(Material.AIR);
-        b.getRelative(0, -1, 1).setType(Material.AIR);
-        b.getRelative(0, -1, -1).setType(Material.AIR);
+    public static void HeavensRing(Block b){
 
         ItemStack ring = new ItemStack(Material.PAPER);
         ItemMeta ringM = ring.getItemMeta();
-        ringM.setDisplayName(ChatColor.AQUA + "Unmarked Ring");
+        ringM.setDisplayName(ChatColor.AQUA + "Heavens Ring");
         ringM.setCustomModelData(1);
+        ring.setItemMeta(ringM);
+
+        for (Player p: Bukkit.getOnlinePlayers()) {
+            p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
+        }
+
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        item.setGravity(false);
+        item.setGlowing(true);
+        item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
+
+    }
+
+    public static void DarknessRing(Block b){
+
+        ItemStack ring = new ItemStack(Material.PAPER);
+        ItemMeta ringM = ring.getItemMeta();
+        ringM.setDisplayName(ChatColor.AQUA + "Darkness Ring");
+        ringM.setCustomModelData(2);
+        ring.setItemMeta(ringM);
+
+        for (Player p: Bukkit.getOnlinePlayers()) {
+            p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
+        }
+
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        item.setGravity(false);
+        item.setGlowing(true);
+        item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
+
+    }
+
+    public static void AstralRing(Block b){
+
+        ItemStack ring = new ItemStack(Material.PAPER);
+        ItemMeta ringM = ring.getItemMeta();
+        ringM.setDisplayName(ChatColor.AQUA + "Astral Ring");
+        ringM.setCustomModelData(3);
+        ring.setItemMeta(ringM);
+
+        for (Player p: Bukkit.getOnlinePlayers()) {
+            p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
+        }
+
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        item.setGravity(false);
+        item.setGlowing(true);
+        item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
+
+    }
+
+    public static void EarthRing(Block b){
+
+        ItemStack ring = new ItemStack(Material.PAPER);
+        ItemMeta ringM = ring.getItemMeta();
+        ringM.setDisplayName(ChatColor.AQUA + "Earth Ring");
+        ringM.setCustomModelData(4);
+        ring.setItemMeta(ringM);
+
+        for (Player p: Bukkit.getOnlinePlayers()) {
+            p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
+        }
+
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, 0), ring);
+        item.setGravity(false);
+        item.setGlowing(true);
+        item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
+
+    }
+
+    public static void NecromancyRing(Block b){
+
+        ItemStack ring = new ItemStack(Material.PAPER);
+        ItemMeta ringM = ring.getItemMeta();
+        ringM.setDisplayName(ChatColor.AQUA + "Necromancy Ring");
+        ringM.setCustomModelData(5);
         ring.setItemMeta(ringM);
 
         for (Player p: Bukkit.getOnlinePlayers()) {
