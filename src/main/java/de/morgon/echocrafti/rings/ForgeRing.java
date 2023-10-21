@@ -118,7 +118,7 @@ public class ForgeRing {
         e.setCancelled(true);
         Block b = e.getClickedBlock();
 
-        LavaFurnace(e.getClickedBlock());
+        LavaMagmaFurnace(e.getClickedBlock());
 
         new BukkitRunnable(){
             @Override
@@ -153,7 +153,7 @@ public class ForgeRing {
 
     }
 
-    public static void LavaFurnace(Block b){
+    public static void LavaMagmaFurnace(Block b){
         for (int x = -1; x < 2; x = x + 2) {
             for (int z = -1; z < 2; z = z + 2) {
 
@@ -166,17 +166,17 @@ public class ForgeRing {
                 b.getLocation().add(4 * x, 0, 2 * z).getBlock().setType(Material.LAVA);
                 b.getLocation().add(2 * x, 0, 4 * z).getBlock().setType(Material.LAVA);
 
+                b.getLocation().add(0, -1, 1).getBlock().setType(Material.MAGMA_BLOCK);
+                b.getLocation().add(0, -1, -1).getBlock().setType(Material.MAGMA_BLOCK);
+                b.getLocation().add(1, -1, 0).getBlock().setType(Material.MAGMA_BLOCK);
+                b.getLocation().add(-1, -1, 0).getBlock().setType(Material.MAGMA_BLOCK);
+
             }
         }
     }
 
 
     public static void MagmaLava(Block b){
-
-        b.getLocation().add(0, -1, 1).getBlock().setType(Material.MAGMA_BLOCK);
-        b.getLocation().add(0, -1, -1).getBlock().setType(Material.MAGMA_BLOCK);
-        b.getLocation().add(1, -1, 0).getBlock().setType(Material.MAGMA_BLOCK);
-        b.getLocation().add(-1, -1, 0).getBlock().setType(Material.MAGMA_BLOCK);
 
         for (Player p: Bukkit.getOnlinePlayers()) {
             p.spawnParticle(Particle.FLAME, b.getLocation().add(0, -1, 1), 10);
@@ -220,7 +220,7 @@ public class ForgeRing {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.25), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
@@ -239,7 +239,7 @@ public class ForgeRing {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.25), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
@@ -258,7 +258,7 @@ public class ForgeRing {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.25), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
@@ -277,7 +277,7 @@ public class ForgeRing {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.25), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
@@ -296,7 +296,7 @@ public class ForgeRing {
             p.spawnParticle(Particle.EXPLOSION_LARGE, b.getLocation().add(0.5, 2, 0.5), 10);
         }
 
-        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.5), ring);
+        Entity item = b.getWorld().dropItemNaturally(b.getLocation().add(0, 1.5, -0.25), ring);
         item.setGravity(false);
         item.setGlowing(true);
         item.setVelocity(new org.bukkit.util.Vector(0, 0, 0));
