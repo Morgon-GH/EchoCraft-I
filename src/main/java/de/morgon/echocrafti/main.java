@@ -9,6 +9,7 @@ import de.morgon.echocrafti.listener.BlockBreakListener;
 import de.morgon.echocrafti.listener.BlockPlaceListener;
 import de.morgon.echocrafti.listener.PlayerDeathListener;
 import de.morgon.echocrafti.listener.PlayerInteractListener;
+import de.morgon.echocrafti.rings.RingAbilityCommand;
 import de.morgon.echocrafti.rings.UniverseIngotRecipe;
 import de.morgon.echocrafti.upgrades.SilexRecipe;
 import org.bukkit.Bukkit;
@@ -46,7 +47,7 @@ public final class main extends JavaPlugin {
 
         getCommand("gifthealth").setExecutor(new GiftHealthCommand());
         getCommand("checkclaim").setExecutor(new CheckClaimCommand());
-        getCommand("testskull").setExecutor(new testSkullItem());
+        getCommand("ringability").setExecutor(new RingAbilityCommand());
 
         logger.info("Loading Recipes");
 

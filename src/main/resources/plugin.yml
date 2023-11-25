@@ -9,3 +9,5 @@ commands:
     description: Let's you check if the chunk you are standing in is claimed
   testskull:
     description: testsomething
+  ringability:
+    description: Baum
